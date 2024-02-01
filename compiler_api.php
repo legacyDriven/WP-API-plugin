@@ -1,7 +1,7 @@
 <?php
 
 /*
-Plugin Name: API Code Runner
+Plugin Name: Compiler API
 Plugin URI: http://youwishtherewasone.joke
 Description: A brief description of the Plugin.
 Version: 1.0
