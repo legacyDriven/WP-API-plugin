@@ -6,7 +6,7 @@ use CompilerApi\Proxy\CompilerService;
 
 // Przykładowe dane do testowania
 $language = 'java'; // Możesz zmienić na 'python', 'scala', etc.
-$code = 'public class Main { public static void main(String[] args) { System.out.println("Hello, World!"); } }';
+$code = 'public class Main { public static void main(String[] args) { System.out.println("Hello, World!, hello, twoja_stara"); } }';
 
 // Utworzenie instancji serwisu i wywołanie kompilacji
 $compilerService = new CompilerService($language, $code);

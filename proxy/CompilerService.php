@@ -43,13 +43,12 @@ class CompilerService {
     }
 
     private function prepareHeadersBasedOnLanguage($language) {
-
         $apiHost = $this->getApiHostBasedOnLanguage($language);
 
         return [
-            'Content-Type: application/json',
-            'X-RapidAPI-Key' => $this->apiKey,
-            'X-RapidAPI-Host' => $apiHost
+            "Content-Type: application/json",
+            "X-RapidAPI-Key: {$this->apiKey}",
+            "X-RapidAPI-Host: {$apiHost}"
         ];
     }
 
@@ -83,5 +82,4 @@ class CompilerService {
         }
         return $result;
     }
-
 }

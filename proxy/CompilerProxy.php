@@ -3,6 +3,8 @@
 namespace CompilerApi\Proxy;
 
 // Klasa służąca jako proxy dla żądania AJAX WordPressa.
+use Exception;
+
 class CompilerProxy {
 
     // Metoda statyczna obsługująca żądanie.
