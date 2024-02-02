@@ -13,7 +13,7 @@ License: A "Slug" license name e.g. GPL2
 // Exit if accessed directly
 if(!defined('ABSPATH'))
 {
-    // to ponizej to AI zrobil, pozwolilem mu i sobie zostawic na pamiatke
+    // to ponizej to AI zrobil, pozwolilem mu i sobie zostawic to na pamiatke
 //    echo 'Juz kurwa nie!'; // Wypierdalaj
     echo "You came to the wrong neighbourhood!";
     exit;

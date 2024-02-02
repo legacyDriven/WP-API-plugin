@@ -1,9 +1,10 @@
 <?php
 
-namespace CompilerApi\Compiler;
+namespace CompilerApi\Proxy;
 
 // Klasa służąca jako proxy dla żądania AJAX WordPressa.
 class CompilerProxy {
+
     // Metoda statyczna obsługująca żądanie.
     public static function handleRequest() {
         try {
@@ -29,3 +30,6 @@ class CompilerProxy {
         wp_die(); // Zakończenie działania skryptu w kontekście WordPressa.
     }
 }
+// Tutaj rejestrujesz handleRequest w WordPress
+add_action('wp_ajax_compiler_proxy', ['CompilerApi\Proxy\CompilerProxy', 'handleRequest']);
+add_action('wp_ajax_nopriv_compiler_proxy', ['CompilerApi\Proxy\CompilerProxy', 'handleRequest']);
