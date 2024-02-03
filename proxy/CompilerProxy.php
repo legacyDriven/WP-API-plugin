@@ -9,6 +9,8 @@ class CompilerProxy {
 
     // Metoda statyczna obsługująca żądanie.
     public static function handleRequest() {
+        check_ajax_referer('my_code_compiler_nonce', 'nonce'); // Sprawdzenie nonce
+
         try {
             // Odbiór danych JSON przesłanych metodą POST.
             $json = file_get_contents('php://input');

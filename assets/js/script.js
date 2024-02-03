@@ -1,4 +1,6 @@
 jQuery(document).ready(function($) {
+    var ajaxurl = myCodeCompiler.ajaxurl; // Teraz masz zmienną ajaxurl dostępną w JavaScript
+
     $('#check-code').click(function() {
         var language = $('#language-select').val();
         var code = $('#code-input').val();
@@ -8,6 +10,7 @@ jQuery(document).ready(function($) {
             type: 'POST',
             data: {
                 action: 'compiler_proxy',
+                nonce: myCodeCompiler.nonce,
                 language: language,
                 code: code
             },
@@ -24,16 +27,6 @@ jQuery(document).ready(function($) {
                 }
                 Prism.highlightAll();
             },
-            // success: function(response) {
-            //     // Przykład: Możesz dostosować logikę w zależności od struktury Twojej odpowiedzi
-            //     $('#result code').text(response);
-            //     if (response.includes('Error')) { // Zakładamy, że błąd kompilacji zawiera słowo "Error"
-            //         $('#result').addClass('result-error');
-            //     } else {
-            //         $('#result').addClass('result-success');
-            //     }
-            //     Prism.highlightAll();
-            // },
             error: function() {
                 $('#result code').text('Wystąpił błąd podczas kompilacji kodu.').addClass('result-error');
                 Prism.highlightAll();
@@ -41,36 +34,3 @@ jQuery(document).ready(function($) {
         });
     });
 });
-
-
-// jQuery(document).ready(function($) {
-//     // Nasłuchiwanie kliknięcia przycisku "Sprawdź Kod"
-//     $('#check-code').click(function() {
-//         // Pobieranie danych z formularza
-//         var language = $('#language-select').val();
-//         var code = $('#code-input').val();
-//
-//         // Wykonanie żądania AJAX
-//         $.ajax({
-//             url: ajaxurl, // 'ajaxurl' jest zmienną globalną zdefiniowaną przez WordPress
-//             type: 'POST',
-//             data: {
-//                 action: 'compiler_proxy', // Nazwa akcji przekazywana do WordPressa, aby zidentyfikować, które zapytanie obsłużyć
-//                 language: language, // Przekazanie wybranego języka programowania
-//                 code: code // Przekazanie kodu źródłowego do kompilacji
-//             },
-//             beforeSend: function() {
-//                 // Opcjonalnie: aktualizacja UI, np. pokazanie loadera
-//                 $('#result').text('Kompilacja w toku...');
-//             },
-//             success: function(response) {
-//                 // Aktualizacja interfejsu użytkownika z wynikami kompilacji
-//                 $('#result').html(response);
-//             },
-//             error: function() {
-//                 // Obsługa błędu żądania
-//                 $('#result').text('Wystąpił błąd podczas kompilacji kodu.');
-//             }
-//         });
-//     });
-// });
